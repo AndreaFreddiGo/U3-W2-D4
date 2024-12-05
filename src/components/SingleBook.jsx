@@ -8,6 +8,7 @@ const SingleBook = ({ changeSelectedBook, selectedBook, book }) => {
         style={{
           border: selectedBook === book.asin ? '3px solid red' : 'none',
         }}
+        data-testid="book"
       >
         <Card.Img variant="top" src={book.img} />
         <Card.Body>
