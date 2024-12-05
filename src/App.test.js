@@ -54,3 +54,13 @@ test('verifico che al click di un altro libro, quello precedente non abbia più 
   // 4) verifica ipotesi/tesi
   expect(cards[0]).not.toHaveStyle('border: 3px solid red')
 })
+
+test("al caricamento della pagina iniziale non c'è nessun commento", () => {
+  // 1) monto il componente nel Virtual Dom
+  render(<CommentArea />)
+  // 2) ricerco l'elemento (in questo caso il bottone di eliminazione del commento)
+  const button = screen.queryByText(/elimina/i)
+  // 3) non intendiamo al momento interagirci, skip!
+  // 4) verifica ipotesi/tesi
+  expect(button).not.toBeInTheDocument()
+})
