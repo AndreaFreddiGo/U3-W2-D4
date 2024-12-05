@@ -64,3 +64,15 @@ test("al caricamento della pagina iniziale non c'è nessun commento", () => {
   // 4) verifica ipotesi/tesi
   expect(button).not.toBeInTheDocument()
 })
+
+test('verifico che al click del libro si visualizzino le recensioni', async () => {
+  // 1) monto il componente nel Virtual Dom
+  render(<App />)
+  // 2) ricerco gli elementi (in questo caso le card dei libri)
+  const cards = screen.getAllByTestId('book')
+  // 3) eseguo click su una generica card
+  fireEvent.click(cards[0])
+  const button = await screen.findAllByText(/elimina/i)
+  // 4) verifica ipotesi/tesi
+  expect(button.length).not.toBe(0)
+})
